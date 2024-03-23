@@ -11,5 +11,7 @@ namespace NESHTO.Data
         {
         }
         public DbSet<NESHTO.Models.Model> Model { get; set; } = default!;
+        public DbSet<NESHTO.Models.SingleTask> SingleTask { get; set; } = default!;
+        public DbSet<NESHTO.Models.RepeatingTask> RepeatingTask { get; set; } = default!;
     }
 }

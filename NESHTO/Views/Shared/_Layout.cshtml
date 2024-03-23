@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - NESHTO</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NESHTO.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -24,6 +25,31 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Tasks</a>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#">Daily Tasks</a>
+                                    <a href="#">Weekly Tasks</a>
+                                    <hr />
+                                    <a asp-controller="SingleTasks" asp-action="Index">All Tasks</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SingleTasks" asp-action="Index">SingleTasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SingleTasks" asp-action="Index">RepeatingTasks</a>
+                        </li>
+                        <li class="nav-item align-self-center">
+                            <div class="form-check form-switch form-switch-focus-">
+                                <input class="form-check-input" type="checkbox" id="ThemeCheckbox">
+                                <label class="form-check-label" for="ThemeCheckbox">Theme</label>
+                            </div>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
