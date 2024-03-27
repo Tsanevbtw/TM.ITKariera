@@ -10,22 +10,22 @@ using NESHTO.Models;
 
 namespace NESHTO.Controllers
 {
-    public class SingleTasksController : Controller
+    public class ToDoTasksController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SingleTasksController(ApplicationDbContext context)
+        public ToDoTasksController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: SingleTasks
+        // GET: ToDoTasks
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SingleTask.ToListAsync());
+            return View(await _context.ToDoTask.ToListAsync());
         }
 
-        // GET: SingleTasks/Details/5
+        // GET: ToDoTasks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace NESHTO.Controllers
                 return NotFound();
             }
 
-            var singleTask = await _context.SingleTask
+            var toDoTask = await _context.ToDoTask
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (singleTask == null)
+            if (toDoTask == null)
             {
                 return NotFound();
             }
 
-            return View(singleTask);
+            return View(toDoTask);
         }
 
-        // GET: SingleTasks/Create
+        // GET: ToDoTasks/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: SingleTasks/Create
+        // POST: ToDoTasks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,DueDate,IsCompleted")] SingleTask singleTask)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,DueDate,Period,IsCompleted")] ToDoTask toDoTask)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(singleTask);
+                _context.Add(toDoTask);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(singleTask);
+            return View(toDoTask);
         }
 
-        // GET: SingleTasks/Edit/5
+        // GET: ToDoTasks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace NESHTO.Controllers
                 return NotFound();
             }
 
-            var singleTask = await _context.SingleTask.FindAsync(id);
-            if (singleTask == null)
+            var toDoTask = await _context.ToDoTask.FindAsync(id);
+            if (toDoTask == null)
             {
                 return NotFound();
             }
-            return View(singleTask);
+            return View(toDoTask);
         }
 
-        // POST: SingleTasks/Edit/5
+        // POST: ToDoTasks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DueDate,IsCompleted")] SingleTask singleTask)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,DueDate,Period,IsCompleted")] ToDoTask toDoTask)
         {
-            if (id != singleTask.Id)
+            if (id != toDoTask.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace NESHTO.Controllers
             {
                 try
                 {
-                    _context.Update(singleTask);
+                    _context.Update(toDoTask);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SingleTaskExists(singleTask.Id))
+                    if (!ToDoTaskExists(toDoTask.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace NESHTO.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(singleTask);
+            return View(toDoTask);
         }
 
-        // GET: SingleTasks/Delete/5
+        // GET: ToDoTasks/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace NESHTO.Controllers
                 return NotFound();
             }
 
-            var singleTask = await _context.SingleTask
+            var toDoTask = await _context.ToDoTask
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (singleTask == null)
+            if (toDoTask == null)
             {
                 return NotFound();
             }
 
-            return View(singleTask);
+            return View(toDoTask);
         }
 
-        // POST: SingleTasks/Delete/5
+        // POST: ToDoTasks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var singleTask = await _context.SingleTask.FindAsync(id);
-            if (singleTask != null)
+            var toDoTask = await _context.ToDoTask.FindAsync(id);
+            if (toDoTask != null)
             {
-                _context.SingleTask.Remove(singleTask);
+                _context.ToDoTask.Remove(toDoTask);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SingleTaskExists(int id)
+        private bool ToDoTaskExists(int id)
         {
-            return _context.SingleTask.Any(e => e.Id == id);
+            return _context.ToDoTask.Any(e => e.Id == id);
         }
     }
 }

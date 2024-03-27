@@ -1,4 +1,4 @@
-﻿@model NESHTO.Models.RepeatingTask
+﻿@model NESHTO.Models.ToDoTask
 
 @{
     ViewData["Title"] = "Details";
@@ -7,14 +7,14 @@
 <h1>Details</h1>
 
 <div>
-    <h4>RepeatingTask</h4>
+    <h4>ToDoTask</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
@@ -29,10 +29,10 @@
             @Html.DisplayFor(model => model.DueDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeriodBetween)
+            @Html.DisplayNameFor(model => model.Period)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeriodBetween)
+            @Html.DisplayFor(model => model.Period)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IsCompleted)
