@@ -1,4 +1,4 @@
-namespace NESHTO.Models
+ namespace NESHTO.Models
 {
     public class ErrorViewModel
     {

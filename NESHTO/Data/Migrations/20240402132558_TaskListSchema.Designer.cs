@@ -12,8 +12,8 @@ using NESHTO.Data;
 namespace NESHTO.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240327210613_TasksSchema")]
-    partial class TasksSchema
+    [Migration("20240402132558_TaskListSchema")]
+    partial class TaskListSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -236,6 +236,7 @@ namespace NESHTO.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -258,17 +259,22 @@ namespace NESHTO.Data.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsCompleted")
+                    b.Property<bool>("IsDone")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Period")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("TaskListId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TaskListId");
 
                     b.ToTable("ToDoTask");
                 });
@@ -322,6 +328,18 @@ namespace NESHTO.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("NESHTO.Models.ToDoTask", b =>
+                {
+                    b.HasOne("NESHTO.Models.TaskList", null)
+                        .WithMany("ToDoTasks")
+                        .HasForeignKey("TaskListId");
+                });
+
+            modelBuilder.Entity("NESHTO.Models.TaskList", b =>
+                {
+                    b.Navigation("ToDoTasks");
                 });
 #pragma warning restore 612, 618
         }

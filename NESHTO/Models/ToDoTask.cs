@@ -1,4 +1,8 @@
-﻿namespace NESHTO.Models
+﻿
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
+
+namespace NESHTO.Models
 {
     public class ToDoTask
     {
@@ -6,12 +10,16 @@
 
         public string Name { get; set; }
 
+        [AllowNull]
         public string Description { get; set; }
 
+        [AllowNull]
         public DateTime DueDate { get; set; }
 
-        public DateTime? Period { get; set; }
+        [AllowNull]
+        public DateTime Period { get; set; }
 
-        public bool IsCompleted { get; set; }
+        public bool IsDone { get; set; } = false;
+
     }
 }

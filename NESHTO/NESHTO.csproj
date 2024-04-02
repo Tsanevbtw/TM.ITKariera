@@ -8,6 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\register n login\Login\login.cshtml" />
+    <Content Remove="Views\register n login\Register\register.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\register n login\Login\login.cshtml" />
+    <None Include="Views\register n login\Register\register.cshtml" />
+    <None Include="Views\TaskLists\Create.cshtml" />
+    <None Include="Views\TaskLists\Delete.cshtml" />
+    <None Include="Views\TaskLists\Details.cshtml" />
+    <None Include="Views\TaskLists\Edit.cshtml" />
+    <None Include="Views\TaskLists\Index.cshtml" />
+    <None Include="Views\ToDoTasks\Create.cshtml" />
+    <None Include="Views\ToDoTasks\Delete.cshtml" />
+    <None Include="Views\ToDoTasks\Details.cshtml" />
+    <None Include="Views\ToDoTasks\Edit.cshtml" />
+    <None Include="Views\ToDoTasks\Index.cshtml" />
+    <None Include="wwwroot\css\loginstyle.css" />
+    <None Include="wwwroot\css\registerstyle.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.3" />

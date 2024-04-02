@@ -224,22 +224,6 @@ namespace NESHTO.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("NESHTO.Models.TaskList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TaskList");
-                });
-
             modelBuilder.Entity("NESHTO.Models.ToDoTask", b =>
                 {
                     b.Property<int>("Id")
@@ -255,14 +239,14 @@ namespace NESHTO.Data.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsCompleted")
+                    b.Property<bool>("IsDone")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Period")
+                    b.Property<DateTime>("Period")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
