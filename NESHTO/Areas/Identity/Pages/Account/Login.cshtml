@@ -6,49 +6,45 @@
 }
 
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/loginstyle.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/loginstyle.css" asp-append-version="true">
 
-    <div class="container">
-        <div class="login-box">
-            <h1>Log In</h1>
-            <form id="account" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="textbox">
-                    <label asp-for="Input.Email" class="form-label" for="email">Email</label>
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" type="text" placeholder="Enter your email" name="email" required>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="textbox">
-                    <label asp-for="Input.Password" class="form-label" for="password">Password</label>
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" type="password" placeholder="Enter your password" name="password" required>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
-                    <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                    </label>
-                </div>
-                <button type="submit" class="btn">Log In</button>
-                <div>
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
+<div class="container-login">
+    <div class="login-box">
+        <h1>Log In</h1>
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="textbox-login">
+                <label asp-for="Input.Email" class="form-label" for="email">Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" type="text" placeholder="Enter your email" name="email" required>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="textbox-login">
+                <label asp-for="Input.Password" class="form-label" for="password">Password</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" type="password" placeholder="Enter your password" name="password" required>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="checkbox mb-3">
+                <label asp-for="Input.RememberMe" class="form-label">
+                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+            <button type="submit" class="btn-login">Log In</button>
+            <div>
+                <p>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                </p>
+                <p>
+                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                </p>
+            </div>
+        </form>
         <p class="register-link">Don't have an account? <a asp-area="Identity" asp-page="/Account/Register">Create one!</a></p>
-        </div>
     </div>
+</div>
 
 
 @section Scripts {
