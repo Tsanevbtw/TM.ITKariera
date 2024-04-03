@@ -16,22 +16,23 @@
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="textbox-register">
-                <label for="name">Name</label>
-                <input type="text" placeholder="Enter your name" name="name" required>
+                <label asp-for="Input.Name">Name</label>
+                <input asp-for="Input.Name" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your name" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
             </div>
             <div class="textbox-register">
-                <label asp-for="Input.Email" for="email">Email</label>
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" type="text" placeholder="Enter your email" name="email" required>
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your email" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="textbox-register">
-                <label asp-for="Input.Password" for="password">Password</label>
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" type="password" placeholder="Enter your password" name="password" required>
+                <label asp-for="Input.Password">Password</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Enter your password" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="textbox-register">
-                <label asp-for="Input.ConfirmPassword" for="confirmPassword">Confirm Password</label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" type="password" placeholder="Enter your password" name="confirmPassword" required>
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Enter your password" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <button id="registerSubmit" type="submit" class="btn-register">Register</button>
