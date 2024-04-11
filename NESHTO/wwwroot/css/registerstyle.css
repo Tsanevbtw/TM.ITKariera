@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     width: auto;
-    margin-top: 60px;
+    margin-top: 30px;
   }
   
   .register-box {
@@ -15,7 +15,7 @@ body {
     box-align: center;
     padding: 40px;
     border-radius: 40px;
-    width: 40%;
+    width: 50%;
     }
     
     .register-box h1 {
@@ -23,7 +23,7 @@ body {
       font-size: 40px;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: bolder;
-      margin-bottom: 100px;
+      margin-bottom: 30px;
       color:#080808;
     }
     

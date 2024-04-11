@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Identity\Data\**" />
+    <Content Remove="Areas\Identity\Data\**" />
+    <EmbeddedResource Remove="Areas\Identity\Data\**" />
+    <None Remove="Areas\Identity\Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\register n login\Login\login.cshtml" />
     <Content Remove="Views\register n login\Register\register.cshtml" />
   </ItemGroup>
@@ -15,16 +22,6 @@
   <ItemGroup>
     <None Include="Views\register n login\Login\login.cshtml" />
     <None Include="Views\register n login\Register\register.cshtml" />
-    <None Include="Views\TaskLists\Create.cshtml" />
-    <None Include="Views\TaskLists\Delete.cshtml" />
-    <None Include="Views\TaskLists\Details.cshtml" />
-    <None Include="Views\TaskLists\Edit.cshtml" />
-    <None Include="Views\TaskLists\Index.cshtml" />
-    <None Include="Views\ToDoTasks\Create.cshtml" />
-    <None Include="Views\ToDoTasks\Delete.cshtml" />
-    <None Include="Views\ToDoTasks\Details.cshtml" />
-    <None Include="Views\ToDoTasks\Edit.cshtml" />
-    <None Include="Views\ToDoTasks\Index.cshtml" />
     <None Include="wwwroot\css\loginstyle.css" />
     <None Include="wwwroot\css\registerstyle.css" />
   </ItemGroup>
@@ -40,10 +37,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Identity\Data\" />
   </ItemGroup>
 
 </Project>

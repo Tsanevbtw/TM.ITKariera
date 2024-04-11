@@ -15,7 +15,7 @@ body {
     box-align: center;
     padding: 40px;
     border-radius: 40px;
-    width: 40%;
+    width: 50%;
 }
 
     .login-box h1 {
@@ -23,14 +23,14 @@ body {
         font-size: 40px;
         font-family: 'Josefin Sans', sans-serif;
         font-weight: bolder;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
         color: #080808;
     }
 
 .textbox-login {
     position: center;
-    margin-bottom: 100px;
-    margin-top: -80px;
+    margin-bottom: 30px;
+    
 }
 
 

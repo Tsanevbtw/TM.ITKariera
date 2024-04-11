@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NESHTO.Models;
 using NESHTO.Data;
+using NESHTO.Models;
 
 namespace NESHTO.Controllers
 {
@@ -54,7 +54,7 @@ namespace NESHTO.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,DueDate,Period,IsDone")] ToDoTask toDoTask)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,DueDate,Period,IsDone,ListId")] ToDoTask toDoTask)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace NESHTO.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,DueDate,Period,IsDone")] ToDoTask toDoTask)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,DueDate,Period,IsDone,ListId")] ToDoTask toDoTask)
         {
             if (id != toDoTask.Id)
             {

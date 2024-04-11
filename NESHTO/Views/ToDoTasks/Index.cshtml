@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.IsDone)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskListId)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,10 +46,13 @@
                 @Html.DisplayFor(modelItem => item.DueDate)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Period)
+                @Html.DisplayFor(modelItem => item.Period)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsDone)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.TaskListId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

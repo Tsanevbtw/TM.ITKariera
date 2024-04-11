@@ -10,8 +10,8 @@ namespace NESHTO.Data
             : base(options)
         {
         }
+        public DbSet<NESHTO.Models.TaskList> TaskList { get; set; } = default!;
         public DbSet<NESHTO.Models.ToDoTask> ToDoTask { get; set; } = default!;
 
-        public DbSet<NESHTO.Models.TaskList> TaskList { get; set; } = default!;
     }
 }
